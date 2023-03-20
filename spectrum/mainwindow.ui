@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
-    <height>332</height>
+    <width>787</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QComboBox" name="m_deviceBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>250</y>
+      <x>10</x>
+      <y>10</y>
       <width>171</width>
       <height>22</height>
      </rect>
@@ -30,18 +30,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>620</width>
+     <width>787</width>
      <height>21</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
