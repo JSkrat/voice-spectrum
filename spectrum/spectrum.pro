@@ -27,13 +27,23 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     audio.cpp \
-    kiss_fft.c
+    kiss_fft.c \
+    spectrumcalculator.cpp \
+    spectraldata.cpp \
+    renderwaveform.cpp \
+    renderer.cpp \
+    renderspectrum.cpp
 
 HEADERS += \
         mainwindow.h \
     audio.h \
     _kiss_fft_guts.h \
-    kiss_fft.h
+    kiss_fft.h \
+    spectrumcalculator.h \
+    spectraldata.h \
+    renderwaveform.h \
+    renderer.h \
+    renderspectrum.h
 
 FORMS += \
         mainwindow.ui

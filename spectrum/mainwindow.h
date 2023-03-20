@@ -4,40 +4,14 @@
 #include <QMainWindow>
 #include <QAudioInput>
 #include "audio.h"
-#include "kiss_fft.h"
+#include "spectrumcalculator.h"
+#include "renderer.h"
+#include "renderwaveform.h"
 
 
 namespace Ui {
 class MainWindow;
 }
-
-
-class RenderArea : public QWidget
-{
-    Q_OBJECT
-
-public:
-    explicit RenderArea(QWidget *parent = nullptr);
-
-public slots:
-    void setLevel(qreal value);
-
-protected:
-    void paintEvent(QPaintEvent *event) override;
-
-private:
-    qreal m_level = 0;
-    int position = 0;
-    const int width = 600;
-    const int height = 50;
-    const int bufLength = 1024;
-    QVector <qreal> levels;
-    QVector <qreal> amplitudes;
-    QVector <qreal> phases;
-    QPixmap m_pixmap;
-    QVector <float> levelsForFFT;
-    kiss_fft_cfg cfg;
-};
 
 
 class MainWindow : public QMainWindow
@@ -50,8 +24,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    RenderArea m_canvas;
+    SpectrumCalculator *calculator;
     Audio grabber;
+    SpectralData data;
+    // renderers
+    QList <Renderer*> render;
 
 private slots:
     void deviceChanged(int index);
