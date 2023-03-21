@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // renderers draw data on a form in specified windows of coordinates
     this->render.append({
                             new RenderWaveform(10, 45, 512, 50, this->data, this),
-                            new RenderSpectrum(10, 100, 512, 128, this->data, this),
+                            new RenderSpectrum(10, 100, 512, 200, this->data, this),
 
                         });
     ui->setupUi(this);

@@ -19,13 +19,20 @@ void SpectrumCalculator::setLevel(qreal value)
     // accumulate waveform sample for fft
     this->levelsForFFT.append(value); // amplitude, real part
     this->levelsForFFT.append(0); // imaginary part
+    qreal maxAmplitude = 0;
+    const qreal peakAmplitude = 200;
     if (this->bufLength*2 <= this->levelsForFFT.length()) {
         kiss_fft_cpx *bufout = (kiss_fft_cpx*) malloc(sizeof(kiss_fft_cpx) * this->bufLength);
         kiss_fft(this->cfg, reinterpret_cast<const kiss_fft_cpx*>(this->levelsForFFT.constData()), bufout);
-        for (int i = 0; i < this->bufLength; i++) {
+        for (int i = 1; i < this->bufLength; i++) {
             this->data.amplitudes[i] = sqrt(pow(bufout[i].r, 2) + pow(bufout[i].i, 2));
+            if (maxAmplitude < data.amplitudes[i]) maxAmplitude = data.amplitudes[i];
             // apparently the phase is atan(r/i) or something like that, but not sure if we need that at all
 //            this->data.phases[i] = bufout[i].i;
+        }
+        // populate compressed spectrum
+        for (int i = 1; i < this->bufLength; i++) {
+            this->data.normalized[i] = peakAmplitude/maxAmplitude*this->data.amplitudes[i];
         }
         free(bufout);
         this->levelsForFFT.clear();

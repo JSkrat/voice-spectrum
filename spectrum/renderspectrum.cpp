@@ -12,6 +12,7 @@ void RenderSpectrum::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     // blue instant spectrogram
     for (int i = 0; i < std::min(this->data.amplitudes.count(), this->width); i++) {
-        painter.fillRect(i, 0, 1, (this->data.amplitudes.at(i))*4, Qt::blue);
+        painter.fillRect(i, 0, 1, (this->data.normalized.at(i)), Qt::cyan);
+        painter.fillRect(i, 0, 1, (this->data.amplitudes.at(i))*1, Qt::blue);
     }
 }
