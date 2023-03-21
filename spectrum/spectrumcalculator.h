@@ -2,10 +2,12 @@
 #define SPECTRUMCALCULATOR_H
 
 #include <QObject>
-#include "audio.h"
+//#include "audio.h"
 #include "kiss_fft.h"
 #include "spectraldata.h"
 
+/// get waveform in slot setLevel
+///  calculate spectrums and stuff
 class SpectrumCalculator : public QObject
 {
     Q_OBJECT

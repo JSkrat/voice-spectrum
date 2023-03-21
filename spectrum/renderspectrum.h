@@ -2,8 +2,9 @@
 #define RENDERSPECTRUM_H
 
 #include <QWidget>
-#include "renderer.h"
 #include <QPainter>
+#include "renderer.h"
+#include "spectraldata.h"
 
 class RenderSpectrum : public Renderer
 {

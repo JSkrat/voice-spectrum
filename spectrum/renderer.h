@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "spectraldata.h"
 
+/// base render class
 class Renderer : public QWidget
 {
     Q_OBJECT

@@ -2,8 +2,9 @@
 #define RENDERWAVEFORM_H
 
 #include <QWidget>
-#include "spectraldata.h"
+#include <QPainter>
 #include "renderer.h"
+#include "spectraldata.h"
 
 class RenderWaveform : public Renderer
 {

@@ -3,6 +3,9 @@
 
 #include <QVector>
 
+/// waveform and spectrums data source
+///  calculator put all the data here
+///  and redrerers draw from here
 class SpectralData
 {
 public:

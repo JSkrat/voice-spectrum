@@ -5,14 +5,12 @@
 #include <QAudioInput>
 #include "audio.h"
 #include "spectrumcalculator.h"
+#include "spectraldata.h"
 #include "renderer.h"
-#include "renderwaveform.h"
-
 
 namespace Ui {
 class MainWindow;
 }
-
 
 class MainWindow : public QMainWindow
 {

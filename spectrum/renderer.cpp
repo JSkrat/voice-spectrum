@@ -1,5 +1,7 @@
 #include "renderer.h"
 
+/// constructor gets drawing window coordinates and size
+///  and a link to data source
 Renderer::Renderer(int x, int y, int w, int h, SpectralData &data, QWidget *parent) :
     QWidget(parent),
     data(data)
