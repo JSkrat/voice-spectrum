@@ -30,9 +30,15 @@ void SpectrumCalculator::setLevel(qreal value)
             // apparently the phase is atan(r/i) or something like that, but not sure if we need that at all
 //            this->data.phases[i] = bufout[i].i;
         }
-        // populate compressed spectrum
+        // populate compressed spectrum and find fundamental frequency of the voice
+        const int minFrequency = 10;
+        const qreal threshold = 100;
+        this->data.baseFrequency = 0;
         for (int i = 1; i < this->bufLength; i++) {
             this->data.normalized[i] = peakAmplitude/maxAmplitude*this->data.amplitudes[i];
+            if (minFrequency < i && threshold <= data.normalized[i] && 0 == this->data.baseFrequency) {
+                this->data.baseFrequency = i;
+            }
         }
         free(bufout);
         this->levelsForFFT.clear();

@@ -18,8 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->calculator = new SpectrumCalculator(this->data, BUFFER_LENGTH, this);
     // renderers draw data on a form in specified windows of coordinates
     this->render.append({
-                            new RenderWaveform(10, 45, 512, 50, this->data, this),
-                            new RenderSpectrum(10, 100, 512, 200, this->data, this),
+                            new RenderWaveform(10, 45, BUFFER_LENGTH/2, 50, this->data, this),
+                            new RenderSpectrum(10, 100, BUFFER_LENGTH/2, 200, this->data, this),
 
                         });
     ui->setupUi(this);

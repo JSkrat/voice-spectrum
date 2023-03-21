@@ -7,6 +7,7 @@ class SpectralData
 {
 public:
     int position = 0;
+    int baseFrequency = 0;
     const int waveformLength = 512;
     const int spectrumLength;
     QVector <qreal> levels;

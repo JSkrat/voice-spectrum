@@ -15,4 +15,5 @@ void RenderSpectrum::paintEvent(QPaintEvent *event)
         painter.fillRect(i, 0, 1, (this->data.normalized.at(i)), Qt::cyan);
         painter.fillRect(i, 0, 1, (this->data.amplitudes.at(i))*1, Qt::blue);
     }
+    painter.fillRect(this->data.baseFrequency, 0, 1, this->height, Qt::red);
 }
