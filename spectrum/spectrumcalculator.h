@@ -15,6 +15,10 @@ class SpectrumCalculator : public QObject
     SpectralData &data;
     QVector <float> levelsForFFT;
     kiss_fft_cfg cfg;
+protected:
+    void calculateCompressedSpectrum(qreal maxAmplitude);
+    void calculateSmoothSpectrum();
+    void calculatePeaks();
 public:
     explicit SpectrumCalculator(SpectralData &data, int bufferLength, QObject *parent = nullptr);
 

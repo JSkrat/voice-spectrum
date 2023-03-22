@@ -32,7 +32,8 @@ SOURCES += \
     spectraldata.cpp \
     renderwaveform.cpp \
     renderer.cpp \
-    renderspectrum.cpp
+    renderspectrum.cpp \
+    renderdebug.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
     spectraldata.h \
     renderwaveform.h \
     renderer.h \
-    renderspectrum.h
+    renderspectrum.h \
+    renderdebug.h
 
 FORMS += \
         mainwindow.ui

@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "renderwaveform.h"
 #include "renderspectrum.h"
+#include "renderdebug.h"
 
 #define BUFFER_LENGTH 1024
 
@@ -20,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->render.append({
                             new RenderWaveform(10, 45, BUFFER_LENGTH/2, 50, this->data, this),
                             new RenderSpectrum(10, 100, BUFFER_LENGTH/2, 200, this->data, this),
-
+                            new RenderDebug(10, 305, BUFFER_LENGTH/2, 200, this->data, this),
                         });
     ui->setupUi(this);
     // populate input audio devices combobox

@@ -17,6 +17,9 @@ public:
     QVector <qreal> amplitudes;
     QVector <qreal> phases;
     QVector <qreal> normalized;
+    QVector <qreal> smooth;
+    QVector <qreal> derivative_1;
+    QVector <qreal> derivative_2;
     QVector <qreal> voice;
     SpectralData(int spectrumLength);
     void waveformAddSample(qreal value);

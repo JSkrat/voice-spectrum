@@ -6,6 +6,9 @@ SpectralData::SpectralData(int spectrumLength): spectrumLength(spectrumLength)
     this->amplitudes.fill(0, this->spectrumLength);
     this->phases.fill(0, this->spectrumLength);
     this->normalized.fill(0, this->spectrumLength);
+    this->smooth.fill(0, this->spectrumLength);
+    this->derivative_1.fill(0, this->spectrumLength);
+    this->derivative_2.fill(0, this->spectrumLength);
     this->voice.fill(0, this->spectrumLength);
 }
 
