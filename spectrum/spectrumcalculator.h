@@ -21,6 +21,9 @@ protected:
     void calculatePeaks();
 public:
     explicit SpectrumCalculator(SpectralData &data, int bufferLength, QObject *parent = nullptr);
+    // calculation parameters
+    float smoothSigma = 2.0;
+    float baseFrequencyThreshold = 2.0;
 
 signals:
     void update();

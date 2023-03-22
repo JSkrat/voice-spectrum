@@ -31,6 +31,8 @@ private:
 private slots:
     void deviceChanged(int index);
 
+    void on_smoothSigma_valueChanged(int value);
+    void on_baseFrequencyThreshold_valueChanged(int value);
 };
 
 #endif // MAINWINDOW_H

@@ -38,6 +38,8 @@ MainWindow::MainWindow(QWidget *parent) :
     for (auto *r: this->render) {
         connect(this->calculator, &SpectrumCalculator::update, r, [r]{r->update();});
     }
+    // force sync ui
+    this->on_smoothSigma_valueChanged(this->ui->smoothSigma->value());
 }
 
 MainWindow::~MainWindow()
@@ -50,4 +52,22 @@ void MainWindow::deviceChanged(int index)
 {
     QVariant itemData = this->ui->m_deviceBox->itemData(index);
     this->grabber.deviceChanged(itemData.value<QAudioDeviceInfo>());
+}
+
+void MainWindow::on_smoothSigma_valueChanged(int value)
+{
+    const float sigma = static_cast<float>(value)/100.0;
+    this->calculator->smoothSigma = sigma;
+    QString text = QString("σ %1").arg(sigma);
+    this->ui->smoothSigma->setToolTip(text);
+    this->ui->smoothSigmaValue->setText(text);
+}
+
+void MainWindow::on_baseFrequencyThreshold_valueChanged(int value)
+{
+    const float threshold = static_cast<float>(value)/10.0;
+    this->calculator->baseFrequencyThreshold = threshold;
+    QString text = QString("t %1").arg(threshold);
+    this->ui->baseFrequencyThreshold->setToolTip(text);
+    this->ui->baseFrequencyThresholdValue->setText(text);
 }
